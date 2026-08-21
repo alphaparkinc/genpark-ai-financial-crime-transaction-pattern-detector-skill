@@ -1,29 +1,14 @@
 class AiFinancialCrimeTransactionPatternDetectorClient:
-    def analyze_transactions(self, transaction_sequence=None, account_id="ACC-77821"):
+    def analyze_transactions(self, transaction_sequence=None, account_id='ACC-77821'):
         transaction_sequence = transaction_sequence or []
         patterns = [
-            {
-                "pattern": "STRUCTURING",
-                "description": "9 cash deposits of $9,800-$9,950 over 14 days, below $10K CTR threshold.",
-                "confidence": 96.2
-            },
-            {
-                "pattern": "LAYERING",
-                "description": "Rapid fund movement via 3 shell entities consolidated back within 72hrs.",
-                "confidence": 88.7
-            }
+            {'pattern': 'STRUCTURING', 'description': 'Sub-threshold cash deposits.', 'confidence': 96.2},
+            {'pattern': 'LAYERING', 'description': 'Rapid layering via shell entities.', 'confidence': 88.7}
         ]
-        sar = "
-".join([
-            "SAR DRAFT -- Account: " + account_id,
-            "Filing basis: Suspected structuring and layering detected via AI pattern analysis.",
-            "Pattern 1: Repeated sub-threshold cash deposits (9 transactions, avg $9,875) over 14 days.",
-            "Pattern 2: Rapid layering through 3 intermediary accounts within 72-hour cycles.",
-            "Recommended action: Freeze account and file SAR within 30 days per BSA requirements."
-        ])
+        sar = 'SAR DRAFT -- Account: ' + account_id + ' | Suspected structuring and layering detected.'
         return {
-            "risk_score": 94.1,
-            "flagged_patterns": patterns,
-            "sar_draft": sar,
-            "recommended_action": "FREEZE_AND_FILE_SAR"
+            'risk_score': 94.1,
+            'flagged_patterns': patterns,
+            'sar_draft': sar,
+            'recommended_action': 'FREEZE_AND_FILE_SAR'
         }
