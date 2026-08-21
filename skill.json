@@ -1,0 +1,38 @@
+{
+  "name": "genpark-ai-financial-crime-transaction-pattern-detector-skill",
+  "version": "1.0.0",
+  "description": "GenPark AI Agent Skill - Agentic financial crime detector: analyzes transaction sequences, flags AML/fraud patterns, and generates regulatory SAR draft reports.",
+  "author": "genpark",
+  "category": "fintech",
+  "tags": [
+    "financial-crime",
+    "aml-detection",
+    "fraud-patterns",
+    "sar-report",
+    "fintech-compliance"
+  ],
+  "inputs": {
+    "transaction_sequence": {
+      "type": "array"
+    },
+    "account_id": {
+      "type": "string"
+    }
+  },
+  "outputs": {
+    "risk_score": {
+      "type": "number"
+    },
+    "flagged_patterns": {
+      "type": "array"
+    },
+    "sar_draft": {
+      "type": "string"
+    },
+    "recommended_action": {
+      "type": "string"
+    }
+  },
+  "entrypoint": "client.py",
+  "example": "example_usage.py"
+}
